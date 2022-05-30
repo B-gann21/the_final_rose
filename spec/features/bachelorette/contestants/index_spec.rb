@@ -15,19 +15,25 @@ RSpec.describe "A Bachelorette's Contestant Index page" do
   end
 
   it 'has the attributes of the bachelorette contestants' do
-    expect(page).to have_content 'leroy'
-    expect(page).to have_content 'bob saget'
+    within "#contestant-#{@contest1.id}" do
+      expect(page).to have_content 'leroy'
+      expect(page).to have_content 'Age: 69'
+      expect(page).to have_content 'Hometown: milawaukee'
+    end
+
+    within "#contestant-#{@contest2.id}" do
+      expect(page).to have_content 'bob saget'
+      expect(page).to have_content 'Age: 44'
+      expect(page).to have_content 'Hometown: cheese town'
+    end
+
     expect(page).to_not have_content 'barry bonds'
     expect(page).to_not have_content 'sammy sosa'
-
-    expect(page).to have_content 'Age: 69'
-    expect(page).to have_content 'Age: 44'
     expect(page).to_not have_content 'Age: 55'
     expect(page).to_not have_content 'Age: 21'
-
-    expect(page).to have_content 'Hometown: milawaukee'
-    expect(page).to have_content 'Hometown: cheese town'
     expect(page).to_not have_content 'Hometown: juice world'
     expect(page).to_not have_content 'Hometown: steroid city'
+    expect(page).to_not have_content 'barry bonds'
+    expect(page).to_not have_content 'sammy sosa'
   end
 end
