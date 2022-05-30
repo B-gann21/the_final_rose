@@ -13,7 +13,7 @@ RSpec.describe 'The Bachelorette Show Page' do
     expect(page).to have_content 'Season Number: 69'
     expect(page).to_not have_content 'Season Number: 4'
 
-    expect(page).to have_content 'Description: stupid ass show '
+    expect(page).to have_content 'Description: stupid ass show'
     expect(page).to_not have_content 'Description: dumb show'
   end
 end
