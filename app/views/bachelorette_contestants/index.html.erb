@@ -1,0 +1,9 @@
+<h1><%= @bach.name %>'s Contestants</h1>
+
+<% @bach.contestants.each do |contestant| %>
+  <div id="contestant-<%= contestant.id %>">
+    <%= link_to "#{contestant.name}", contestant_path(contestant) %><br>
+    Age: <%= contestant.age %><br>
+    Hometown: <%= contestant.hometown %><br>
+  </div>
+<% end %>
